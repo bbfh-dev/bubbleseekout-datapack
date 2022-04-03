@@ -42,3 +42,5 @@ execute if score @s buso.seek_items matches -1 run item replace entity @p[tag=-b
 execute if score @s buso.seek_items matches -107 run item replace entity @p[tag=-buso.last_marked_player] hotbar.0 from entity @s weapon.mainhand
 execute if score #Succeed bubbleseekout matches 1 run item replace entity @s weapon.mainhand with minecraft:air
 execute if score #Succeed bubbleseekout matches 0 run tellraw @s ["", {"text":"BubbleSeekOut ERROR", "bold":true}, " \u25b6 ", {"text":"This slot can't contain this item", "color":"red"}]
+
+execute if score $SilentSeeking buso.settings matches 0 run tellraw @p[tag=-buso.last_marked_player] ["", {"text":"BubbleSeekOut WARN", "bold":true}, " \u25b6 ", {"text":"An item was given to your slot #", "color":"yellow", "extra":[{"score":{"name":"@s", "objective":"buso.seek_items"}}]}]
