@@ -83,6 +83,17 @@ execute if score @s buso.seek_items matches 1 run item replace entity @p[tag=-bu
 execute if score @s buso.seek_items matches 0 run data modify entity @e[type=minecraft:item, tag=buso.item, limit=1] Item set from entity @p[tag=-buso.last_marked_player] Inventory[{Slot:0b}]
 execute if score @s buso.seek_items matches 0 run item replace entity @p[tag=-buso.last_marked_player] hotbar.0 with minecraft:air
 
+
+#! Logging:
+scoreboard players operation #ID bubbleseekout = @p[tag=-buso.last_marked_player] buso.registry
+function bubbleseekout:api/database/get_player_by_id
+
+data modify storage minecraft:bubbleseekout Log set value {Category:0b, Type:1b, Target:"", Value:""}
+data modify storage minecraft:bubbleseekout Log.Target set from storage minecraft:bubbleseekout Instance.Player.Name
+data modify storage minecraft:bubbleseekout Log.Value set from entity @e[type=minecraft:item, tag=buso.item, limit=1] Item.id
+function bubbleseekout:api/database/logs/insert
+
+
 data modify entity @e[type=minecraft:item, tag=buso.item, limit=1] PickupDelay set value 0s
 tag @e[type=minecraft:item, tag=buso.item] remove buso.item
 
