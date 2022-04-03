@@ -40,5 +40,19 @@ execute if score @s buso.seek_items matches -3 run item replace entity @p[tag=-b
 execute if score @s buso.seek_items matches -2 run item replace entity @p[tag=-buso.last_marked_player] hotbar.2 from entity @s weapon.mainhand
 execute if score @s buso.seek_items matches -1 run item replace entity @p[tag=-buso.last_marked_player] hotbar.1 from entity @s weapon.mainhand
 execute if score @s buso.seek_items matches -107 run item replace entity @p[tag=-buso.last_marked_player] hotbar.0 from entity @s weapon.mainhand
+
+
+#! Logging:
+scoreboard players operation #ID bubbleseekout = @p[tag=-buso.last_marked_player] buso.registry
+execute if score #Succeed bubbleseekout matches 1 run function bubbleseekout:api/database/get_player_by_id
+
+execute if score #Succeed bubbleseekout matches 1 run data modify storage minecraft:bubbleseekout Log set value {Category:0b, Type:2b, Target:"", Value:""}
+execute if score #Succeed bubbleseekout matches 1 run data modify storage minecraft:bubbleseekout Log.Target set from storage minecraft:bubbleseekout Instance.Player.Name
+execute if score #Succeed bubbleseekout matches 1 run data modify storage minecraft:bubbleseekout Log.Value set from entity @s SelectedItem.id
+execute if score #Succeed bubbleseekout matches 1 run function bubbleseekout:api/database/logs/insert
+
+
 execute if score #Succeed bubbleseekout matches 1 run item replace entity @s weapon.mainhand with minecraft:air
 execute if score #Succeed bubbleseekout matches 0 run tellraw @s ["", {"text":"BubbleSeekOut ERROR", "bold":true}, " \u25b6 ", {"text":"This slot can't contain this item", "color":"red"}]
+
+execute if score $SilentSeeking buso.settings matches 0 run tellraw @p[tag=-buso.last_marked_player] ["", {"text":"BubbleSeekOut WARN", "bold":true}, " \u25b6 ", {"text":"An item was given to your slot #", "color":"yellow", "extra":[{"score":{"name":"@s", "objective":"buso.seek_items"}}]}]
