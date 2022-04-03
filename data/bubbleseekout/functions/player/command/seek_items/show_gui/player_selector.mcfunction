@@ -1,0 +1,3 @@
+tellraw @s ["\u250c\u2500\u2500\u2500 ", {"text":"BubbleSeekOut: Seek Items", "bold":true}]
+function bubbleseekout:api/registry/print_players
+tellraw @s ["\u2502\n\u2502 Click ", {"text":"[Select]", "color":"#5afc2d", "clickEvent":{"action":"suggest_command", "value":"/trigger buso.seek_items set "}}, " and enter an ", {"text":"ID", "color":"#fccd35", "underlined":true, "hoverEvent":{"action":"show_text", "contents":"ID is located in-front of each player's name"}}, ".\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500"]

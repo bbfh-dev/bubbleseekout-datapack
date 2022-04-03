@@ -1,0 +1,34 @@
+{
+    "pack": {
+        "pack_format": 8,
+        "description": [
+            {
+                "text": "BubbleSeekOut 1.0a",
+                "color": "#f4b64b"
+            },
+            {
+                "text": " | 04/03/22",
+                "color": "#9aa3a5"
+            },
+            {
+                "text": "\nby BubbleFish",
+                "color": "#b64bf4"
+            },
+            {
+                "text": " ",
+                "bold": true
+            },
+            {
+                "text": "       | 1.18.X",
+                "color": "#9aa3a5"
+            }
+        ],
+        "metadata": {
+            "authors": {
+                "BubbleFish": "24c8f8f8-9db3-4878-b8ea-530dbe583196"
+            },
+            "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+            "pack_page": "https://www.planetminecraft.com/data-pack/bubbleseekout"
+        }
+    }
+}

@@ -1,0 +1,1 @@
+data modify storage minecraft:bubbleseekout Log set value '["Changed dimension to ", {"storage":"minecraft:bubbleseekout", "nbt":"Instance.Logs[-1].Target", "iterpret":true, "color":"#5afc2d"}]'

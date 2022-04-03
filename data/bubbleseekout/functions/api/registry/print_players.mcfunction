@@ -1,0 +1,2 @@
+tellraw @s ["\u2502 ", {"text":"Online Players list:", "bold":true}]
+execute at @a run tellraw @s ["\u2502\n\u2502 ", {"score":{"name":"@p", "objective":"buso.registry"}, "color":"#fccd35"}, " <-> ", {"selector":"@p", "color":"#cd35fc"}]

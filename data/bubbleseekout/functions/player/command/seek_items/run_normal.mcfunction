@@ -1,0 +1,2 @@
+execute if score @s buso.seek_items matches -2147483647 run function bubbleseekout:player/command/seek_items/show_gui/player_selector
+execute if score @s buso.seek_items matches 1..2147483647 run function bubbleseekout:player/command/seek_items/select_player

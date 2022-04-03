@@ -1,0 +1,2 @@
+execute as @a run function bubbleseekout:api/registry/mark_player_by_id/instance
+execute unless entity @p[tag=-buso.last_marked_player] run tellraw @s ["", {"text":"BubbleSeekOut ERROR", "bold":true}, " \u25b6 ", {"text":"There's no player matching the ID of ", "color":"red", "extra":[{"score":{"name":"#ID", "objective":"bubbleseekout"}}]}]

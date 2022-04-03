@@ -1,0 +1,1 @@
+tellraw @s ["", {"text":"BubbleSeekOut INFO", "bold":true}, " \u25b6 ", "Gamerule logs_limit is ", {"score":{"name":"$LogsLimit", "objective":"bubbleseekout"}}]

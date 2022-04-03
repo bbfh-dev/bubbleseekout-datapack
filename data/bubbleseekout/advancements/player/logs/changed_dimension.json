@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "requirement": {
+            "trigger": "minecraft:changed_dimension"
+        }
+    },
+    "rewards": {
+        "function": "bubbleseekout:player/changed_dimension"
+    }
+}
