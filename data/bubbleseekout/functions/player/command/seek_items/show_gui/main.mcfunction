@@ -1,6 +1,6 @@
 tellraw @s ["\n\u250c\u2500\u2500\u2500 ", {"selector":"@p[tag=-buso.last_marked_player]", "bold":true, "extra":["'s Inventory"]}]
 
-data modify storage minecraft:bubbleseekout Thread set value []
+data modify storage minecraft:bubbleseekout Thread set value {Offhand:[], Armor:[], Inventory:[], Hotbar:[], EnderChest:[]}
 execute store result score #SelectedItemSlot bubbleseekout run data get entity @p[tag=-buso.last_marked_player] SelectedItemSlot
 
 function bubbleseekout:player/command/seek_items/print_items
