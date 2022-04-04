@@ -1,4 +1,31 @@
 scoreboard players set #Succeed bubbleseekout 1
+execute if score @s buso.seek_items matches -1000 run item replace entity @p[tag=-buso.last_marked_player] enderchest.0 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1001 run item replace entity @p[tag=-buso.last_marked_player] enderchest.1 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1002 run item replace entity @p[tag=-buso.last_marked_player] enderchest.2 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1003 run item replace entity @p[tag=-buso.last_marked_player] enderchest.3 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1004 run item replace entity @p[tag=-buso.last_marked_player] enderchest.4 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1005 run item replace entity @p[tag=-buso.last_marked_player] enderchest.5 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1006 run item replace entity @p[tag=-buso.last_marked_player] enderchest.6 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1007 run item replace entity @p[tag=-buso.last_marked_player] enderchest.7 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1008 run item replace entity @p[tag=-buso.last_marked_player] enderchest.8 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1009 run item replace entity @p[tag=-buso.last_marked_player] enderchest.9 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1010 run item replace entity @p[tag=-buso.last_marked_player] enderchest.10 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1011 run item replace entity @p[tag=-buso.last_marked_player] enderchest.11 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1012 run item replace entity @p[tag=-buso.last_marked_player] enderchest.12 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1013 run item replace entity @p[tag=-buso.last_marked_player] enderchest.13 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1014 run item replace entity @p[tag=-buso.last_marked_player] enderchest.14 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1015 run item replace entity @p[tag=-buso.last_marked_player] enderchest.15 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1016 run item replace entity @p[tag=-buso.last_marked_player] enderchest.16 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1017 run item replace entity @p[tag=-buso.last_marked_player] enderchest.17 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1018 run item replace entity @p[tag=-buso.last_marked_player] enderchest.18 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1019 run item replace entity @p[tag=-buso.last_marked_player] enderchest.19 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1020 run item replace entity @p[tag=-buso.last_marked_player] enderchest.20 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1021 run item replace entity @p[tag=-buso.last_marked_player] enderchest.21 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1022 run item replace entity @p[tag=-buso.last_marked_player] enderchest.22 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1023 run item replace entity @p[tag=-buso.last_marked_player] enderchest.23 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1024 run item replace entity @p[tag=-buso.last_marked_player] enderchest.24 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1025 run item replace entity @p[tag=-buso.last_marked_player] enderchest.25 from entity @s weapon.mainhand
+execute if score @s buso.seek_items matches -1026 run item replace entity @p[tag=-buso.last_marked_player] enderchest.26 from entity @s weapon.mainhand
 execute if score @s buso.seek_items matches -106 run item replace entity @p[tag=-buso.last_marked_player] weapon.offhand from entity @s weapon.mainhand
 execute if score @s buso.seek_items matches -103 run item replace entity @p[tag=-buso.last_marked_player] armor.head from entity @s weapon.mainhand
 execute if score @s buso.seek_items matches -102 store success score #Succeed bubbleseekout run item replace entity @p[tag=-buso.last_marked_player] armor.chest from entity @s weapon.mainhand
@@ -44,15 +71,7 @@ execute if score @s buso.seek_items matches -107 run item replace entity @p[tag=
 
 #! Logging:
 scoreboard players operation #ID bubbleseekout = @p[tag=-buso.last_marked_player] buso.registry
-execute if score #Succeed bubbleseekout matches 1 run function bubbleseekout:api/database/get_player_by_id
-
-execute if score #Succeed bubbleseekout matches 1 run data modify storage minecraft:bubbleseekout Log set value {Category:0b, Type:2b, Target:"", Value:""}
-execute if score #Succeed bubbleseekout matches 1 run data modify storage minecraft:bubbleseekout Log.Target set from storage minecraft:bubbleseekout Instance.Player.Name
-execute if score #Succeed bubbleseekout matches 1 run data modify storage minecraft:bubbleseekout Log.Value set from entity @s SelectedItem.id
-execute if score #Succeed bubbleseekout matches 1 run function bubbleseekout:api/database/logs/insert
-
-
-execute if score #Succeed bubbleseekout matches 1 run item replace entity @s weapon.mainhand with minecraft:air
+execute if score #Succeed bubbleseekout matches 1 run function bubbleseekout:player/command/seek_items/slot/insert/final
 execute if score #Succeed bubbleseekout matches 0 run tellraw @s ["", {"text":"BubbleSeekOut ERROR", "bold":true}, " \u25b6 ", {"text":"This slot can't contain this item", "color":"red"}]
 
 execute if score $SilentSeeking buso.settings matches 0 run tellraw @p[tag=-buso.last_marked_player] ["", {"text":"BubbleSeekOut WARN", "bold":true}, " \u25b6 ", {"text":"An item was given to your slot #", "color":"yellow", "extra":[{"score":{"name":"@s", "objective":"buso.seek_items"}}]}]
