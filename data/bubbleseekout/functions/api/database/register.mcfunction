@@ -4,8 +4,8 @@ execute store result storage minecraft:bubbleseekout Database[-1].Player.Registr
 data modify storage minecraft:bubbleseekout Database[-1].Player.UUID set from entity @s UUID
 
 tag @s add -buso.source
-setblock 0 0 0 bedrock
-setblock 0 0 0 oak_sign{Text1:'{"selector":"@p[tag=-buso.source]", "clickEvent":{"action":"run_command", "value":""}}'} replace
+setblock 0 0 0 minecraft:bedrock
+setblock 0 0 0 minecraft:oak_sign{Text1:'{"selector":"@p[tag=-buso.source]", "clickEvent":{"action":"run_command", "value":""}}'} replace
 data modify storage minecraft:bubbleseekout Database[-1].Player.Name set from block 0 0 0 Text1
-setblock 0 0 0 bedrock
+setblock 0 0 0 minecraft:bedrock
 tag @s remove -buso.source
