@@ -71,7 +71,7 @@ execute if score @s buso.seek_items matches -107 run item replace entity @p[tag=
 
 #! Logging:
 scoreboard players operation #ID bubbleseekout = @p[tag=-buso.last_marked_player] buso.registry
-execute if score #Succeed bubbleseekout matches 1 run function bubbleseekout:player/command/seek_items/slot/insert/final
 execute if score #Succeed bubbleseekout matches 0 run tellraw @s ["", {"text":"BubbleSeekOut ERROR", "bold":true}, " \u25b6 ", {"text":"This slot can't contain this item", "color":"red"}]
+execute if score #Succeed bubbleseekout matches 1 run function bubbleseekout:player/command/seek_items/slot/insert/final
 
 execute if score $SilentSeeking buso.settings matches 0 run tellraw @p[tag=-buso.last_marked_player] ["", {"text":"BubbleSeekOut WARN", "bold":true}, " \u25b6 ", {"text":"An item was given to your slot #", "color":"yellow", "extra":[{"score":{"name":"@s", "objective":"buso.seek_items"}}]}]
